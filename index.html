@@ -16,7 +16,7 @@
         body {
             font-family: 'Cormorant Garamond', serif;
             background: linear-gradient(rgba(255, 215, 0, 0.2), rgba(218, 165, 32, 0.3)), 
-                        url('background.jpg') center/cover fixed;
+                        url('./background.jpg') center/cover fixed;
             background-attachment: fixed;
             background-size: 110% 110%;
             min-height: 100vh;
@@ -232,11 +232,6 @@
             font-size: 48px;
             color: #DAA520;
             margin: 15px 0;
-        }
-        
-        @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
         }
         
         .parents-info {
@@ -1170,9 +1165,9 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio id="backgroundMusic" loop>
-        <source src="music.mp3" type="audio/mpeg">
-        <source src="music.ogg" type="audio/ogg">
+    <audio id="backgroundMusic" preload="metadata" loop>
+        <source src="./music.mp3" type="audio/mpeg">
+        <source src="./music.ogg" type="audio/ogg">
         Your browser does not support the audio element.
     </audio>
     
@@ -1321,7 +1316,7 @@
                         <div>Putri pertama dari:</div>
                         <div class="parent-names">
                             Agus Edy Prasetiawan<br>
-                                $<br>
+                                &<br>
                             Ketut Sariani
                         </div>
                     </div>
@@ -1346,31 +1341,34 @@
                             "Taman Alam Semesta yang Asli"
                         </div>
                         
-                        <!-- PHOTO SLIDER CONTAINER - 3 Photos -->
-                        <!-- Supports all image sizes and ratios -->
-                        <!-- For best results: landscape photos 800x600px or similar ratio -->
-                        <!-- Portrait photos will be centered and cropped appropriately -->
+                        <!-- PHOTO SLIDER CONTAINER - 3 Photos - Fixed Paths -->
                         <div class="photo-slider-container">
                             <div class="photo-slider">
                                 <!-- Photo 1: Main venue -->
                                 <div class="slide active" data-slide="1">
-                                    <img src="venue1.jpg" 
+                                    <img src="./venue1.jpg" 
                                          alt="Taman Prakerti Bhuana - Main View" 
-                                         class="slide-image">
+                                         class="slide-image"
+                                         onload="console.log('venue1.jpg loaded!')"
+                                         onerror="console.log('venue1.jpg failed:', this.src)">
                                 </div>
                                 
                                 <!-- Photo 2: Garden area -->
                                 <div class="slide" data-slide="2">
-                                    <img src="venue2.jpg" 
+                                    <img src="./venue2.jpg" 
                                          alt="Taman Prakerti Bhuana - Garden" 
-                                         class="slide-image">
+                                         class="slide-image"
+                                         onload="console.log('venue2.jpg loaded!')"
+                                         onerror="console.log('venue2.jpg failed:', this.src)">
                                 </div>
                                 
                                 <!-- Photo 3: Ceremony area -->
                                 <div class="slide" data-slide="3">
-                                    <img src="venue3.jpg" 
+                                    <img src="./venue3.jpg" 
                                          alt="Taman Prakerti Bhuana - Ceremony" 
-                                         class="slide-image">
+                                         class="slide-image"
+                                         onload="console.log('venue3.jpg loaded!')"
+                                         onerror="console.log('venue3.jpg failed:', this.src)">
                                 </div>
 
                                 <!-- Navigation arrows -->
@@ -1389,6 +1387,14 @@
                                     <div class="progress-bar"></div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <!-- Debug Links for Testing -->
+                        <div style="text-align: center; font-size: 11px; color: #999; margin-top: 5px;">
+                            <span>Test: </span>
+                            <a href="./venue1.jpg" target="_blank" style="color: #B8860B; margin-right: 8px;">venue1</a>
+                            <a href="./venue2.jpg" target="_blank" style="color: #B8860B; margin-right: 8px;">venue2</a>
+                            <a href="./venue3.jpg" target="_blank" style="color: #B8860B;">venue3</a>
                         </div>
                         
                         <div style="color: #5D4037; font-size: 14px; line-height: 1.6;">
